@@ -1,0 +1,20 @@
+\section{Restrictions}
+\label{restrictions}
+
+The dataset has a defined structure, however, it was necessary to include some restrictions in order to guarantee the best performance for the algorithm to be implemented.
+On the other hand, some of the columns were not necessary for the recommendation system.
+First, three columns were excluded:
+\begin{itemize}
+    \item \textbf{event\_time} - These data are not used to our the recommendation system, since they only tell us the time of the event.
+    As the data we have is only two months old, we do not feel the need to use this column.
+    The \textbf{user\_session} field also gives us a sense of the time of the event.
+    \item \textbf{category\_code} - This field is a repeat of the \textbf{category\_id}.
+    In order not to have redundant information, we decided to exclude it from our dataset.
+    \item \textbf{price} - This data is not relevant for our recommendation system.
+    The main focus is to establish a relationship between users the products / categories they prefer.
+\end{itemize}
+
+In the \textbf{event\_type} field, there can be 4 possible values (view, cart, remove\_from\_cart, purchase).
+For this project we just decided to consider the events of \textbf{view} and \textbf{purchase} type, where the purchase is more relevant, that is, is recommended a product that was more often purchased than a product that was seen more often.
+
+
