@@ -1,1 +1,16 @@
 dataset/*
+brands/
+categories/
+products/
+session_brands/
+session_brands_v/
+session_categories/
+session_categories_v/
+session_products/
+session_products_v/
+user_brands/
+user_brands_v/
+user_categories/
+user_categories_v/
+user_products/
+user_products_v/
