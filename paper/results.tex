@@ -1,0 +1,24 @@
+\section{Results}
+\label{results}
+
+The results we've got were obtained through the analysis of the FPGrowth algorithm which is similar to the apriori one.
+
+To get our final results we selected the columns we wanted and then we removed the duplicates since it doesn't make
+sense to have a basket with an item repeated. 
+
+Then we wrote the information to different files using parquet:
+\begin{itemize}
+    \item user_products, user_id | product_id where event-type = purchase, 
+    \item user_products_v, user_id | product_id where event_type = view 
+    \item user_brands user_id | brand where event_type = purchase
+    \item user_brands_v user_id | brand where event_type = view
+    \item user_categories user_id | category_id where event_type = purchase
+    \item user_categories_v user_id | category_id where event_type = view
+    \item session_products, user_session | product_id where event-type = purchase, 
+    \item session_products_v, user_session | product_id where event_type = view 
+    \item session_brands user_session | brand where event_type = purchase
+    \item session_brands_v user_session | brand where event_type = view
+    \item session_categories user_session | category_id where event_type = purchase
+    \item session_categories_v user_session | category_id where event_type = view
+\end{itemize}
+

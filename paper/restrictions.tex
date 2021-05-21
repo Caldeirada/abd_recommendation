@@ -8,13 +8,16 @@ First, three columns were excluded:
     \item \textbf{event\_time} - These data are not used to our the recommendation system, since they only tell us the time of the event.
     As the data we have is only two months old, we do not feel the need to use this column.
     The \textbf{user\_session} field also gives us a sense of the time of the event.
-    \item \textbf{category\_code} - This field is a repeat of the \textbf{category\_id}.
+    \item \textbf{category\_code} - This field allows nulls and it is not necessary for the recommendation since we can get the \textbf{category\_id} which doesn't 
+    allow nulls making it more useful.
     In order not to have redundant information, we decided to exclude it from our dataset.
     \item \textbf{price} - This data is not relevant for our recommendation system.
-    The main focus is to establish a relationship between users the products / categories they prefer.
+    The main focus is to establish a relationship between users and products / categories they prefer without caring for prices.
 \end{itemize}
 
-In the \textbf{event\_type} field, there can be 4 possible values (view, cart, remove\_from\_cart, purchase).
-For this project we just decided to consider the events of \textbf{view} and \textbf{purchase} type, where the purchase is more relevant, that is, is recommended a product that was more often purchased than a product that was seen more often.
+In the \textbf{event\_type} field, there can be 3 possible values (view, cart, purchase).
+
+For this project we decided to just consider the events of \textbf{view} and \textbf{purchase} type since in this dataset the \textbf{cart} event type
+doesn't allow us to distinguish between the items added to the cart and the removed ones.
 
 

@@ -6,12 +6,12 @@ For a recommendation system, the dataset must follow some criteria, such as an e
 
 For this project, we chose a dataset collected by Open CDP from an eCommerce store with more than 15 million visitors per month.
 All sensitive and personal data was removed. 
-Broken data (like NULL price or products without categories) was removed also.
+Broken data (like NULL price or products without categories) was also removed.
 
-The file contains behavior data for 2 months (from October 2019 to November 2019) from a large multi-category online store.
+The file contains behavior data for 2 months (from October 2019 and November 2019) from a large multi-category online store.
 Each row in the file represents an event. 
 All events are related to products and users.
-Each events is like many-to-many relation products and users.
+Each event corresponds to a one-to-one relation between the user and the product.
 
 The dataset is structured with 9 columns:
 \begin{center}
@@ -43,7 +43,6 @@ The dataset is structured with 9 columns:
 Event types can be:
 \begin{itemize}
     \item \textbf{view} - a user viewed a product.
-    \item \textbf{cart} - a user added a product to shopping cart.
-    \item \textbf{remove\_from\_cart} - a user removed a product from shopping cart.
+    \item \textbf{cart} - a user added a product to the shopping cart.
     \item \textbf{purchase} - a user purchased a product.
 \end{itemize}
