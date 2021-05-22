@@ -1,0 +1,17 @@
+\section{Algorithm}
+\label{algorithm}
+
+In order to be able to make the recommendations to the users we used the FPGrowth algorithm (similar to Apriori) which takes arguments,
+in our case we used two, minSupport and minConfidence. MinSupport and minConfidence are used to know when a basket 
+can be considered frequent, a high value for this parameters will reduce the number of frequent baskets.
+This algorithm besides this arguments bases itself on the antecedent (items that the user already has) and gives us
+the consequent (item he is likely to add to his basket) besides this it gives us two variable results, confidence and lift.
+
+The confidence is the probability of adding item B when i already have A in my basket, if confidence equals 1
+then it means that all users that have A add B to the basket.
+
+The lift is a metric that reflects the increase in probability of having item B in basket if the user has already
+item A.
+
+A pair of antecedent and consequent with high values of confidence and lift means that we can recommend item B to all
+users that already have A and they will most likely buy it. 
