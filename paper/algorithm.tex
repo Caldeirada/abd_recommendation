@@ -4,8 +4,10 @@
 In order to be able to make the recommendations to the users we used the FPGrowth algorithm (similar to Apriori) which takes arguments,
 in our case we used two, minSupport and minConfidence. MinSupport and minConfidence are used to know when a basket 
 can be considered frequent, a high value for this parameters will reduce the number of frequent baskets.
+We used 0.001 and 0.25 respectively for this parameters in order to get good results, since our dataset was big if we had used
+a higher minSupport then it would have cut off to many values, and less than 0.25 confidence we think that it is to low to consider.
 This algorithm besides this arguments bases itself on the antecedent (items that the user already has) and gives us
-the consequent (item he is likely to add to his basket) besides this it gives us two variable results, confidence and lift.
+the consequent (item he is likely to add to his basket), also it gives us two variable results, confidence and lift.
 
 The confidence is the probability of adding item B when i already have A in my basket, if confidence equals 1
 then it means that all users that have A add B to the basket.
