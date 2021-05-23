@@ -18,14 +18,35 @@ understand the user preference when purchasing items of a given category and the
 An example below
 
 \begin{Verbatim}[commandchars=\\\{\}]
-    +--------------+--------+-------------------------+
-    |category\_id  |brand   |brand\_category          |
-    +--------------+--------+-------------------------+
-    |2053013552326770905|aqua|2053013552326770905.aqua|
-    +--------------+--------+-------------------------+
+    +-------------------+--------+------------------------+
+    |category\_id        |brand   |brand\_category           |
+    +-------------------+--------+------------------------+
+    |2053013552326770905|aqua    |2053013552326770905.aqua|
+    +-------------------+--------+------------------------+
 \end{Verbatim}
 
-For this project we decided to just consider the events of \textbf{view} and \textbf{purchase} type since in this dataset the \textbf{cart} event type
-doesn't allow to distinguish between the items added to the cart and the removed ones.
-
-
+For this project we decided to just consider the events of \textit{view} and \textit{purchase} type since 
+in this dataset the \textit{cart} event type doesn't allow to distinguish between the items added to the cart and the removed ones.
+Then the dataset was split by event types mencioned above. After to prepare the data for the algorithm several tables were created by grouping the dataset by user\_id and session\_id and
+joining the product\_id, category\_id, brand and the new column brand\_category.
+This yielded 14 tables that served as an input for the algorithm.
+The tables ending with \textit{\_v} represent the views and the others the purchases.
+Each table was then saved into a file.
+\begin{itemize}
+    \item \textbf{user\_products} - user\_id $\times$ product\_id
+    \item \textbf{user\_products\_v} - user\_id $\times$ product\_id
+    \item \textbf{user\_brands} - user\_id $\times$ brand
+    \item \textbf{user\_brands\_v} - user\_id $\times$ brand
+    \item \textbf{user\_categories} - user\_id $\times$ category\_id
+    \item \textbf{user\_categories\_v} - user\_id $\times$ category\_id
+    \item \textbf{user\_category\_brand} - user\_id $\times$ brand\_category
+    \item \textbf{user\_category\_brand\_v} - user\_id $\times$ brand\_category
+    \item \textbf{session\_products} - session\_id $\times$ brand\_category
+    \item \textbf{session\_products\_v} - session\_id $\times$ brand\_category
+    \item \textbf{session\_brands }- session\_id $\times$ brand\_category
+    \item \textbf{session\_brands\_v} - session\_id $\times$ brand\_category
+    \item \textbf{session\_categories} - session\_id $\times$ brand\_category
+    \item \textbf{session\_categories\_v} - session\_id $\times$ brand\_category
+    \item \textbf{session\_category\_brand} - session\_id $\times$ brand\_category
+    \item \textbf{session\_category\_brand\_v} - session\_id $\times$ brand\_category
+\end{itemize}

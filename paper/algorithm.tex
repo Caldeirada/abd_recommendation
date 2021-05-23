@@ -1,19 +1,24 @@
 \section{Algorithm}
 \label{algorithm}
 
-In order to be able to make the recommendations to the users we used the FPGrowth algorithm (similar to Apriori) which takes arguments,
-in our case we used two, a minimum support and minimum confidence. MinSupport and minConfidence are used to know when a basket 
-can be considered frequent, a high value for this parameters will reduce the number of frequent baskets.
-We used 0.001 and 0.25 respectively for this parameters in order to get good results, since our dataset was big if we had used
-a higher minSupport then it would have cut off to many values, and less than 0.25 confidence we think that it is to low to consider.
-This algorithm besides this arguments bases itself on the antecedent (items that the user already has) and gives us
-the consequent (item he is likely to add to his basket), also it gives us two variable results, confidence and lift.
+The chosen algorithm was FPGrowth, for extracting frequent itemsets and generating association rules.
+This algorithm has been used in favor of the Apriori algorithm seen in the lectures.
+The algorithm takes as parameters, the data to analyse, the minimum support and minimum confidence. 
+The minimum support is the threshold for a set of items to be considered frequent, 
+this is used to get the frequent items from the data.
+The minimum confidence is the minimum confidence needed for a given association rule to be considered as important.
+We used 0.001 and 0.20 respectively for this parameters in order to achieve results, a higher value minimum support 
+resulted in a cut off to many values and a minimum confidence value less than 0.20 we think that it is to 
+low to consider.
+After generating the frequent items the algorithm calculates the association rules for them.
+The association rules then give us the consequent (item he is likely to add to his basket) based on
+the antecedent (items that the user already has), also it gives us two variable results, confidence and lift.
 
-The confidence is the probability of adding item B when i already have A in my basket, if confidence equals 1
-then it means that all users that have A add B to the basket.
+The confidence is the probability of seeing item B on a basket when it already contains A. A confidence value of 1
+means that all baskets that have item A also have item B.
 
 The lift is a metric that reflects the increase in probability of having item B in basket if the user has already
 item A.
 
 A pair of antecedent and consequent with high values of confidence and lift means that we can recommend item B to all
-users that already have A and they will most likely buy it. 
+users that already have A and they will most likely buy it or at least view it. 
