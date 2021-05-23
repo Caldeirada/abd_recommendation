@@ -1,0 +1,31 @@
+\section{Data Preparation}
+\label{data_prep}
+
+To better handle the algorithm input data some changes had to be done to the dataset,
+some columns could be removed and a new one added.
+
+First, three columns were excluded:
+\begin{itemize}
+    \item \textbf{event\_time} - The event timestamp was removed because it isn't a relevant data for the algorithm used.
+    \item \textbf{category\_code} - This column has null values and the dataset already provides a category\_id column with a numeric value to represent the category
+    In order not to have redundant information, we decided to exclude it from our dataset.
+    \item \textbf{price} - This data is not relevant for our recommendation system, since the algorithm doesn't take the price into consideration.
+    The main focus is to establish a relationship between users and products / categories / brands.
+\end{itemize}
+
+The new column, named brand\_category, was the concatenation of two others, the category id and brand. This was done to better 
+understand the user preference when purchasing items of a given category and their brand of choice.
+An example below
+
+\begin{Verbatim}[commandchars=\\\{\}]
+    +--------------+--------+-------------------------+
+    |category\_id  |brand   |brand\_category          |
+    +--------------+--------+-------------------------+
+    |2053013552326770905|aqua|2053013552326770905.aqua|
+    +--------------+--------+-------------------------+
+\end{Verbatim}
+
+For this project we decided to just consider the events of \textbf{view} and \textbf{purchase} type since in this dataset the \textbf{cart} event type
+doesn't allow to distinguish between the items added to the cart and the removed ones.
+
+

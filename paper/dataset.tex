@@ -1,41 +1,32 @@
 \section{Dataset}
 \label{dataset}
 
-For a recommendation system, the dataset must follow some criteria, such as an evaluation system, where it is possible to create a relationship between users and items.
-
-
-For this project, we chose a dataset collected by Open CDP from an eCommerce store with more than 15 million visitors per month.
-All sensitive and personal data was removed. 
-Broken data (like NULL price or products without categories) was also removed.
-
-The file contains behavior data for 2 months (from October 2019 and November 2019) from a large multi-category online store.
-Each row in the file represents an event. 
-All events are related to products and users.
-Each event corresponds to a one-to-one relation between the user and the product.
+The dataset rows represent an event by a given user, either view, purchasing or changing the items in the cart.
+The dataset was already anonymized which means the personal data was removed.
 
 The dataset is structured with 9 columns:
 \begin{center}
 \begin{tabular}{ | p{3cm} | p{2cm} | p{5cm} | } 
  \hline
- \textbf{Property} & \textbf{Type} & \textbf{Description} \\ 
+ \textbf{Property} & \textbf{Type} & \textbf{Description} \\  
  \hline
- \textbf{event\_time} & Date & Time when event happened at (in UTC)s. \\
+ \textbf{event\_time} & String & Timestamp of event in UTC \\
  \hline
- \textbf{event\_type} & String & Only one kind of event. \\
+ \textbf{event\_type} & String & Event type \\
  \hline
- \textbf{product\_id} & Number & ID of a product. \\
+ \textbf{product\_id} & Number & ID of a product \\
  \hline
- \textbf{category\_id} & Number & Product's category ID. \\
+ \textbf{category\_id} & Number & Product category ID \\
  \hline
- \textbf{category\_code} & String & Product's category taxonomy (code name) if it was possible to make it. Usually present for meaningful categories and skipped for different kinds of accessories. \\
+ \textbf{category\_code} & String & Product category code name \\
  \hline
- \textbf{brand} & String & Downcased string of brand name. Can be missed. \\
+ \textbf{brand} & String & Brand name \\
  \hline
- \textbf{price} & Number & Float price of a product. Present. \\
+ \textbf{price} & Number & Price of a product, unknown currency. \\
  \hline
- \textbf{user\_id} & Number & Permanent user ID. \\
+ \textbf{user\_id} & Number & User ID. \\
  \hline
- \textbf{user\_section} & String & Temporary user's session ID. Same for each user's session. Is changed every time user come back to online store from a long pause. A session can have a multiple events. \\
+ \textbf{user\_session} & String & Temporary session ID, changed every time a user accesses the store \\
  \hline
 \end{tabular}
 \end{center}
@@ -46,3 +37,33 @@ Event types can be:
     \item \textbf{cart} - a user added a product to the shopping cart.
     \item \textbf{purchase} - a user purchased a product.
 \end{itemize}
+
+An example of a row
+
+\begin{center}
+    \begin{tabular}{ | c| c | } 
+     \hline
+     \textbf{Property} & \textbf{Value}  \\  
+     \hline
+     event\_time & 2019-10-01 00:00:00 UTC \\
+     \hline
+     event\_type & view \\
+     \hline
+     product\_id & 3900821 \\
+     \hline
+     category\_id & 2053013552326770905 \\
+     \hline
+     category\_code & appliances.environment.water\_heater \\
+     \hline
+     brand & aqua \\
+     \hline
+     price & 33.20 \\
+     \hline
+     user\_id & 554748717 \\
+     \hline
+     user\_session & 9333dfbd-b87a-4708-9857-6336556b0fcc \\
+     \hline
+    \end{tabular}
+    \end{center}
+
+

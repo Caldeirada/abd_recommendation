@@ -1,7 +1,5 @@
 \section{Introduction}
 \label{intro}
-In this article it will be explained the structure of the dataset used and the approaches that
-were implemented to create the recommendation system.
 A recommendation system combines several computational techniques to select personalized items based on the
 interests of users and conforms to the context in which they are inserted.
 Items can be any product, such as movies, books, music, videos, electronic devices, advertisements, etc.
@@ -16,8 +14,7 @@ order to make the assumptions, and thus posing a difficulty of the analysis.
 
 Several approaches to recommendation algorithms exist, from predicting user ratings to predicting the probality
 of different sets of occurring together.
-
-We opted for this last case because it applies better for our dataset since we don't have ratings. 
+%We opted for this last case because it applies better for our dataset since we don't have ratings. 
 
 %In order to improve the performance of the recommendations, the system approach must be directed to the relationships
 %between the customers and the items. 
@@ -30,3 +27,8 @@ It makes predictions (filtering) about the interests of users and collects the p
 For example, if user A has the same opinion as user B about one product then it is more likely that they share
 the same opinion in other products than user A sharing the same opinion with a random user.
 The similarity between two items is determined by the interest / rating given by the users.
+
+This report will analyze the following dataset 
+\url{https://www.kaggle.com/mkechinov/ecommerce-behavior-data-from-multi-category-store}
+collected by Open CDP from an eCommerce store with more than 15 million visitors per month,
+ from October 2020 to November 2020, it features data from items viewed, purchased and placed in the shopping cart.

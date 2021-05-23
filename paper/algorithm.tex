@@ -2,7 +2,7 @@
 \label{algorithm}
 
 In order to be able to make the recommendations to the users we used the FPGrowth algorithm (similar to Apriori) which takes arguments,
-in our case we used two, minSupport and minConfidence. MinSupport and minConfidence are used to know when a basket 
+in our case we used two, a minimum support and minimum confidence. MinSupport and minConfidence are used to know when a basket 
 can be considered frequent, a high value for this parameters will reduce the number of frequent baskets.
 We used 0.001 and 0.25 respectively for this parameters in order to get good results, since our dataset was big if we had used
 a higher minSupport then it would have cut off to many values, and less than 0.25 confidence we think that it is to low to consider.

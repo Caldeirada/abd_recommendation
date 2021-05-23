@@ -1,0 +1,56 @@
+\section{Data Exploration}
+\label{data_exploration}
+
+Before implementing the algorithm a data analysis is required to better understand the data at hand.
+
+To start the null values were counted to better evaluate the dataset, the result was:
+\begin{Verbatim}[commandchars=\\\{\}]
++--------------+--------+-------------+
+|category\_code |brand   |user\_session  |
++--------------+--------+-------------+
+|      35413780|15341158|           12|
++--------------+--------+-------------+
+\end{Verbatim}
+The other columns presented no missing values.
+
+
+The most purchased and viewed brands were also counted, only showing the top 10.
+\begin{Verbatim}[commandchars=\\\{\}]
++--------+------+--------+--------+    
+|  Purchased    +     Viewed      |
++--------+------+--------+--------+
+|   brand| count|   brand|   count|
++--------+------+--------+--------+
+| samsung|372923| samsung|11898628|
+|   apple|308937|   apple| 9374247|
+|  xiaomi|124908|  xiaomi| 7232401|
+|  huawei| 47204|  huawei| 2358235|
+|cordiant| 27534| lucente| 1775749|
+| lucente| 26137|      lg| 1574848|
+|    oppo| 25971|   bosch| 1480771|
+|      lg| 21606|    oppo| 1203440|
+|    sony| 17038|    sony| 1193071|
+|   artel| 15391|    acer| 1084065|
++--------+------+--------+--------+
+\end{Verbatim}
+
+The most purchased products with the respective brand and number of purchases
+\begin{Verbatim}[commandchars=\\\{\}]
++----------+-------+-----+
+|product_id|  brand|count|
++----------+-------+-----+
+|   1004856|samsung|61265|
+|   1004767|samsung|44419|
+|   1005115|  apple|34787|
+|   4804056|  apple|30181|
+|   1004833|samsung|26183|
+|   1002544|  apple|22227|
+|   1004870|samsung|21288|
+|   1004249|  apple|17971|
+|   1005105|  apple|15776|
+|   1004836|samsung|15549|
++----------+-------+-----+
+\end{Verbatim}
+The product id is given since the dataset didn't provide the product commercial name.
+
+%We also plotted the information we deemed useful. The results can be seen below
