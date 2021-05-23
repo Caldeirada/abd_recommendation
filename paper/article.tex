@@ -4,9 +4,13 @@
 \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
 \usepackage{fancyvrb} % verbatim replacement that allows latex
 \usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
 
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+
+\graphicspath{ {images/} }
 
 %opening
 \title{Algorithms for Big Data - Recommendation System}
@@ -28,6 +32,8 @@
 \input{data_exploration.tex}
 
 \input{data_preparation.tex}
+
+\input{data_analysis.tex}
 
 https://towardsdatascience.com/recsys-series-part-4-the-7-variants-of-matrix-factorization-for-collaborative-filtering-368754e4fab5
 https://developers.google.com/machine-learning/recommendation/collaborative/matrix
