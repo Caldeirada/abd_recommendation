@@ -18,28 +18,32 @@ For this, we built a table with a single line, which shows the field count to nu
 We found many records with \textbf{brand} and \textbf{category\_code} at null and 12 records with \textbf{user\_session} to null.
 We decided to remove these lines and not consider them for our recommendation system.
 With these changes, we are left with a dataset of 68 650 184 records.
+For running the algorithm we left the category code be null since we had the category id so this didn't impact the result of the algorithm.
 
 \subsection{Brand analysis}
 For the analysis of brands, the quantity of products purchased and viewed from the various brands was counted.
 Below are two graphs with this count:
 
 \begin{figure}[H]
-    \noindent\includegraphics[width=\textwidth]{Count_brand_purchased.png}
+    \centering
+    \includegraphics[width=15cm]{Count_brand_purchased.png}
     \caption{Count of brand products purchased.}
 \end{figure}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth]{Count_brand_viewed.png}
+    \centering
+    \includegraphics[width=15cm]{Count_brand_viewed.png}
     \caption{Count of brand products viewed.}
 \end{figure}
 
 As we can see, Samsung was the most viewed and purchased brand.
-Apple and Xiaomi are also well represented in this digital store.
-An interesting analysis that we can see now is the number of times a brand is seen to be purchased.
+Apple and Xiaomi are also well represented in this store.
+An interesting analysis that we can see now is the number of times on average a brand is seen before being purchased.
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth]{Brand_viewed_x_purchased.png}
-    \caption{Number of times a brand is seen to be purchased.}
+    \centering
+    \includegraphics[width=15cm]{Brand_viewed_x_purchased.png}
+    \caption{Number of times on average a brand is seen before being purchased.}
 \end{figure}
 
 We were able to observe that Samsung and Apple do not need to be seen very often to be purchased.
@@ -50,22 +54,25 @@ For the analysis of categories, the number of products by category that were pur
 Below are two graphs with this count:
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth]{Count_category_purchased.png}
+    \centering
+    \includegraphics[width=15cm]{Count_category_purchased.png}
     \caption{Count of category products purchased.}
 \end{figure}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth]{Count_category_viewed.png}
+    \centering
+    \includegraphics[width=15cm]{Count_category_viewed.png}
     \caption{Count of category products viewed.}
 \end{figure}
 
-As we can see, smartphones was the most viewed and purchased category, followed by far by computers, TVs, headphones, clocks and kitchen appliances.
-An interesting analysis that we can see now is the number of times a category is seen to be purchased.
+As we can see, smartphones was the most viewed and purchased category by far, followed by computers, TVs, headphones, clocks and kitchen appliances.
+An interesting analysis that we can see now is the number of times on average a category is seen before being purchased.
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth]{Category_viewed_x_purchased.png}
-    \caption{Number of times a category is seen to be purchased.}
+    \centering
+    \includegraphics[width=15cm]{Category_viewed_x_purchased.png}
+    \caption{Number of times on average a category is seen before being purchased.}
 \end{figure}
 
 We were able to observe that smartphones and headphones do not need to be seen very often to be purchased.
-On the other hand, clocks needs to be seen, on average, 74 times before it is purchased.
+On the other hand, clocks need to be seen, on average, 74 times before it is purchased.

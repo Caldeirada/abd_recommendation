@@ -7,27 +7,31 @@ some columns could be removed and a new one added.
 First, three columns were excluded:
 \begin{itemize}
     \item \textbf{event\_time} - The event timestamp was removed because it isn't a relevant data for the algorithm used.
-    \item \textbf{category\_code} - This column has null values and the dataset already provides a category\_id column with a numeric value to represent the category
-    In order not to have redundant information, we decided to exclude it from our dataset.
+    \item \textbf{category\_code} - This column has null values and the dataset already provides a category\_id column with a numeric value to represent the category.
+    In order to avoid having redundant information, we decided to exclude it from our dataset.
     \item \textbf{price} - This data is not relevant for our recommendation system, since the algorithm doesn't take the price into consideration.
-    The main focus is to establish a relationship between users and products / categories / brands.
+    The main focus is to establish a relationship between users and baskets of products / categories / brands.
 \end{itemize}
 
 The new column, named brand\_category, was the concatenation of two others, the category id and brand. This was done to better 
 understand the user preference when purchasing items of a given category and their brand of choice.
-An example below
 
+An example below:
+\newline
+\begin{center}
 \begin{Verbatim}[commandchars=\\\{\}]
+    
     +-------------------+--------+------------------------+
     |category\_id        |brand   |brand\_category           |
     +-------------------+--------+------------------------+
     |2053013552326770905|aqua    |2053013552326770905.aqua|
     +-------------------+--------+------------------------+
 \end{Verbatim}
+\end{center}
 
 For this project we decided to just consider the events of \textit{view} and \textit{purchase} type since 
 in this dataset the \textit{cart} event type doesn't allow to distinguish between the items added to the cart and the removed ones.
-Then the dataset was split by event types mencioned above. After to prepare the data for the algorithm several tables were created by grouping the dataset by user\_id and session\_id and
+Then the dataset was split by event types mencioned above. Then to prepare the data for the algorithm several tables were created by grouping the dataset by user\_id and session\_id and
 joining the product\_id, category\_id, brand and the new column brand\_category.
 This yielded 14 tables that served as an input for the algorithm.
 The tables ending with \textit{\_v} represent the views and the others the purchases.
@@ -43,7 +47,7 @@ Each table was then saved into a file.
     \item \textbf{user\_category\_brand\_v} - user\_id $\times$ brand\_category
     \item \textbf{session\_products} - session\_id $\times$ brand\_category
     \item \textbf{session\_products\_v} - session\_id $\times$ brand\_category
-    \item \textbf{session\_brands }- session\_id $\times$ brand\_category
+    \item \textbf{session\_brands} - session\_id $\times$ brand\_category
     \item \textbf{session\_brands\_v} - session\_id $\times$ brand\_category
     \item \textbf{session\_categories} - session\_id $\times$ brand\_category
     \item \textbf{session\_categories\_v} - session\_id $\times$ brand\_category

@@ -4,14 +4,16 @@
 The chosen algorithm was FPGrowth, for extracting frequent itemsets and generating association rules.
 This algorithm has been used in favor of the Apriori algorithm seen in the lectures.
 The algorithm takes as parameters, the data to analyse, the minimum support and minimum confidence. 
+
 The minimum support is the threshold for a set of items to be considered frequent, 
 this is used to get the frequent items from the data.
 The minimum confidence is the minimum confidence needed for a given association rule to be considered as important.
-We used 0.001 and 0.20 respectively for this parameters in order to achieve results, a higher value minimum support 
-resulted in a cut off to many values and a minimum confidence value less than 0.20 we think that it is to 
-low to consider.
+We used values between 0.001 and 0.0001 for the minimum support and 0.20 for the minimum confidence in order to achieve results.
+For some of the tables a higher value of minimum support resulted in no association rules so we had to lower it until the algorithm returned some.
+A minimum confidence value less than 0.20 we think that it is to low to consider but in order to get results out of the session\_products table we had to lower this value.
+
 After generating the frequent items the algorithm calculates the association rules for them.
-The association rules then give us the consequent (item he is likely to add to his basket) based on
+The association rules then give us the consequent (item the user is likely to add to his basket) based on
 the antecedent (items that the user already has), also it gives us two variable results, confidence and lift.
 
 The confidence is the probability of seeing item B on a basket when it already contains A. A confidence value of 1
@@ -21,4 +23,4 @@ The lift is a metric that reflects the increase in probability of having item B 
 item A.
 
 A pair of antecedent and consequent with high values of confidence and lift means that we can recommend item B to all
-users that already have A and they will most likely buy it or at least view it. 
+users that already have A and they will most likely add it to the basket (in this case buy/view). 

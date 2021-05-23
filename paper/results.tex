@@ -1,5 +1,67 @@
-\section{Conclusions}
+\section{Results}
 \label{conclusions}
 
-After analysing the results we can take a couple of conclusions, for instance people that buy cellphones also
-buy kitchen appliances.
+The output of the algorithm for the table \textbf{session\_products} showed only 1 row inspite of the many rows the original table had. This is because people tend to only buy one item at most per session.
+As we can see below the confidence value of the most frequent basket is really low so we think this should not be considered, we just wanted to show the kind of values
+we got from this table.
+
+\begin{Verbatim}[commandchars=\\\{\}]
++----------+----------+-----------------+------------------+
+|antecedent|consequent|confidence       |lift              |
++----------+----------+-----------------+------------------+
+|[1004209] |[1004856] |0.067280163599182|1.5578528839942554|
++----------+----------+-----------------+------------------+
+\end{Verbatim}
+
+Below we can see the top 5 results of the algorithm for the \textbf{user\_category\_brand} table but instead of seeing the id we replaced it with the category code just for readability, this also applies to the tables to come.
+In the results' table we can see people tend to buy various smartphone brands and people who buy apple products and a smartphone also have a high probability of buying
+an apple smartphone.
+
+\begin{Verbatim}[commandchars=\\\{\}]
++--------------------------------------+---------------------+-------------------+------------------+
+|antecedent                            |consequent           |confidence         |lift              |
++--------------------------------------+---------------------+-------------------+------------------+
+|[apple.clocks, samsung.smartphone]    |[apple.smartphone]   |0.6340388007054674 |3.8623420398517830|
+|[oppo.smartphone, apple.smartphone]   |[samsung.smartphone] |0.5538461538461539 |2.3693545938950447|
+|[oppo.smartphone, huawei.smartphone]  |[samsung.smartphone] |0.5155185465556397 |2.2053890381605720|
+|[huawei.smartphone, apple.smartphone] |[samsung.smartphone] |0.5133333333333333 |2.1960406930453145|
+|[apple.headphone, samsung.smartphone] |[apple.smartphone]   |0.5129121970599920 |3.1244812450804744|
++--------------------------------------+---------------------+-------------------+------------------+
+\end{Verbatim}
+
+In the result of the algorithm for the table \textbf{session\_categories} we can see that people tend to buy
+products of similar category.
+
+\begin{Verbatim}[commandchars=\\\{\}]
++---------------------------+------------------------+-------------------+------------------+
+|antecedent                 |consequent              |confidence         |lift              |
++---------------------------+------------------------+-------------------+------------------+
+|[components.cpu]           |[components.motherboard]|0.2171875          |439.27017620716515|
+|[components.motherboard]   |[components.cpu]        |0.21651090342679127|439.27017620716515|
+|[kitchen.hob]              |[kitchen.oven]          |0.14145031333930170|32.623266138842470|
+|[appliances.ironing_board] |[appliances.iron]       |0.11859649122807017|19.416717433477782|
++---------------------------+------------------------+-------------------+------------------+
+\end{Verbatim}
+
+On the table above we can see that the lift is high for cpu-motherboard which means that a purchase of cpu will highly impact the probability of the user also purchasing a
+motherboard and vice-versa.
+In the output of the algorithm for the table \textbf{session\_categories\_v} we can observe that the lift is low in comparison with the results above,
+which means that looking up telephones almost doesn't impact looking up smartphones.
+
+\begin{Verbatim}[commandchars=\\\{\}]
++-----------------------------+-------------------------+-------------------+------------------+
+|antecedent                   |consequent               |confidence         |lift              |
++-----------------------------+-------------------------+-------------------+------------------+
+|[electronics.telephone]      |[electronics.smartphone] |0.3605470258465718 |1.049254090651665 |
+|[apparel.shoes]              |[apparel.shoes]          |0.3066989578233196 |30.38944127045021 |
+|[apparel.shoes]              |[apparel.shoes.keds]     |0.22444619914183056|26.381189859860445|
+|[apparel.shoes.keds]         |[apparel.shoes]          |0.2029590351309315 |26.381189859860445|
+|[electronics.audio.subwoofer]|[auto.accessories.player]|0.2001501317482689 |24.808248133550173|
++-----------------------------+-------------------------+-------------------+------------------+
+\end{Verbatim}
+
+Although the category ids for the second row are different they both map the same category code that's why they appear twice. 
+
+After working with this algorithm we can say that it was easy to use and understand. Also, it gave us interesting results that can be used, for example, to
+make a promotion on items that have high lift meaning they are frequently bought together. It is also possible to use this algorithm to suggest items to a specific user
+based on his views/purchases.
